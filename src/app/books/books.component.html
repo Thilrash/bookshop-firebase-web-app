@@ -1,0 +1,16 @@
+<h1>Book List</h1>
+
+<!-- <button (click)="toggleBooks()">
+    <span *ngIf="!isShowing">Show Books</span>
+    <span *ngIf="isShowing">Hide Books</span>
+</button> -->
+
+<!-- <input type="text" [(ngModel)]="myName"> -->
+
+<!-- <p>{{ myName }}</p> -->
+
+<ul *ngIf="isShowing">
+    <ng-container *ngFor="let singleBook of books; let i=index">
+        <app-book (emitBook)="addToCard($event)" [book]="singleBook"></app-book>
+    </ng-container>
+</ul>
