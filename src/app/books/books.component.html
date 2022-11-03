@@ -1,21 +1,16 @@
-<p>books works!</p>
+<h1>Book List</h1>
 
-<button (click)="toggleBooks()">
+<!-- <button (click)="toggleBooks()">
     <span *ngIf="!isShowing">Show Books</span>
     <span *ngIf="isShowing">Hide Books</span>
-</button>
+</button> -->
 
-<input type="text" [(ngModel)]="myName">
+<!-- <input type="text" [(ngModel)]="myName"> -->
 
-<p>{{ myName }}</p>
+<!-- <p>{{ myName }}</p> -->
 
 <ul *ngIf="isShowing">
-    <ng-container *ngFor="let book of books; let i=index">
-        <li class="book">
-            <p class="sno">{{ i + 1 }}</p>
-            <img [src]="book.image" [alt]="book.name" width="20%">
-            <p class="title">{{ book.name | titlecase }} by {{ book.author }}</p>
-            <p class="currency">Price : {{ book.price | currency: 'LKR' }}</p>
-        </li>
+    <ng-container *ngFor="let singleBook of books; let i=index">
+        <app-book (emitBook)="addToCard($event)" [book]="singleBook"></app-book>
     </ng-container>
 </ul>

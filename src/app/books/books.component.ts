@@ -1,11 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-
-interface Book {
-  image: string
-  name: string,
-  author: string,
-  price: number
-}
+import { Component, OnInit, Output } from '@angular/core';
+import { Book } from '../interface/Book';
 
 @Component({
   selector: 'app-books',
@@ -35,11 +29,12 @@ export class BooksComponent implements OnInit {
     },
   ];
 
-  isDisable: boolean = false;
+  card: Book[] = [];
 
-  myName: string = '';
+  // isDisable: boolean = false;
+  // myName: string = '';
 
-  isShowing: boolean = false;
+  isShowing: boolean = true;
 
   constructor() { }
 
@@ -48,5 +43,9 @@ export class BooksComponent implements OnInit {
 
   toggleBooks() {
     this.isShowing = !this.isShowing; 
+  }
+
+  addToCard(book: Book) {
+    console.log(book);
   }
 }
